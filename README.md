@@ -55,14 +55,23 @@ The API documentation (Swagger UI) can be accessed at http://localhost:8000/docs
 
 8. API Endpoints
 POST /books/: Add a new book.
+
 GET /books/: Retrieve all books.
+
 GET /books/{id}/: Retrieve a specific book by its ID.
+
 PUT /books/{id}/: Update a book's information by its ID.
+
 DELETE /books/{id}/: Delete a book by its ID.
+
 POST /books/{id}/reviews/: Add a review for a book.
+
 GET /books/{id}/reviews/: Retrieve all reviews for a book.
+
 GET /books/{id}/summary/: Get a summary and aggregated rating for a book.
+
 GET /recommendations/: Get book recommendations based on user preferences.
+
 POST /generate-summary/: Generate a summary for a given book content.
 
 
