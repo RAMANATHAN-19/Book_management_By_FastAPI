@@ -109,8 +109,8 @@ Stores information about books.
 Stores reviews for books.
 
 
-| Column      | Type   | Constraints                          | Description                                    |
-|-------------|---------------------------------------------|------------------------------------------------|
+| Column      | Type | Constraints                        | Description                                    |
+|-------------|------|-------------------------------------|------------------------------------------------|
 | id          | SERIAL | PRIMARY KEY                        | Unique identifier for each review.             |
 | book_id     | INT    | REFERENCES books(id)               | Foreign key referencing the books table.       |
 | user_id     | INT    | NOT NULL                           | Identifier for the user who wrote the review.  |
