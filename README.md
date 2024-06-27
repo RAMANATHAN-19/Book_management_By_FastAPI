@@ -27,33 +27,34 @@ This project implements a RESTful API for managing books and reviews using FastA
    git clone https://github.com/RAMANATHAN-19/Book_management_assessment.
    cd book-management
 
-2 .Setup virtual environment:
+2 . **Setup virtual environment:**
 
 python -m venv venv
 . venv/bin/activate
 
-3.Install dependencies:
+3. **Install dependencies:**
 
 pip install -r requirements.txt
 
-4. Setup PostgreSQL database:
+4. **Setup PostgreSQL database:**
 
 Create a PostgreSQL database named book_management.
 Update the database URL in app/database.py if necessary.
 
-5.Run the migrations:
+5. **Run the migrations:**
 
 alembic upgrade head
 
-6. Start the FastAPI server:
+6. **Start the FastAPI server:**
 
 uvicorn app.main:app --reload
 
-7. Access the API:
+7. **Access the API:**
 
 The API documentation (Swagger UI) can be accessed at http://localhost:8000/docs.
 
-8. API Endpoints
+8. **API Endpoints**
+   
 POST /books/: Add a new book.
 
 GET /books/: Retrieve all books.
@@ -74,49 +75,50 @@ GET /recommendations/: Get book recommendations based on user preferences.
 
 POST /generate-summary/: Generate a summary for a given book content.
 
+9 . **Authentication**
 
-9 . Authentication
 Basic authentication is implemented for accessing the API endpoints. Use the following credentials:
 Username: rajesh
 Password: ramanathan
 Include these credentials in the URL when making requests to authenticated endpoints:
 http://rajesh:ramanathan@localhost:8000/books/
 
-10.Security
+10. **Security**
 Ensure to secure your database connection and credentials.
 For production deployment, configure HTTPS for secure communication.
 
-11: Database Schema
+11: **Database Schema**
 
-books Table
+**books Table**
 
 Stores information about books.
 
 
------------------------------------------------------------
-Column      |	Type	 |Constraints   |	Description
-id	SERIAL	PRIMARY KEY	Unique identifier for each book.
-title	VARCHAR(255)	NOT NULL	Title of the book.
-author	VARCHAR(255)	NOT NULL	Author of the book.
-genre	VARCHAR(50)		Genre of the book (optional).
-year_published	INT		Year the book was published (optional).
-summary	TEXT		Summary or description of the book.
------------------------------------------------------------------
+| Column         | Type         | Constraints     | Description                               |
+|----------------|--------------|-----------------|-------------------------------------------|
+| id             | SERIAL       | PRIMARY KEY     | Unique identifier for each book.          |
+| title          | VARCHAR(255) | NOT NULL        | Title of the book.                        |
+| author         | VARCHAR(255) | NOT NULL        | Author of the book.                       |
+| genre          | VARCHAR(50)  |                 | Genre of the book (optional).             |
+| year_published | INT          |                 | Year the book was published (optional).   |
+| summary        | TEXT         |                 | Summary or description of the book.       |
 
 
-reviews Table
+**reviews Table**
 
 Stores reviews for books.
----------------------------------------------------------------------------------------
-Column	Type	Constraints	Description
-id	SERIAL	PRIMARY KEY	Unique identifier for each review.
-book_id	INT	REFERENCES books(id)	Foreign key referencing the books table.
-user_id	INT	NOT NULL	Identifier for the user who wrote the review.
-review_text	TEXT		Text content of the review.
-rating	INT	CHECK (rating >= 1 AND rating <= 5)	Rating given by the user (1 to 5).
----------------------------------------------------------------------------------------
 
-Explanation:
+
+| Column      | Type | Constraints                        | Description                                    |
+|-------------|------|-------------------------------------|------------------------------------------------|
+| id          | SERIAL | PRIMARY KEY                        | Unique identifier for each review.             |
+| book_id     | INT    | REFERENCES books(id)               | Foreign key referencing the books table.       |
+| user_id     | INT    | NOT NULL                           | Identifier for the user who wrote the review.  |
+| review_text | TEXT   |                                    | Text content of the review.                    |
+| rating      | INT    | CHECK (rating >= 1 AND rating <= 5)| Rating given by the user (1 to 5).             |
+
+
+**Explanation:**
 
 books Table: Contains information about each book including its title, author, genre, publication year, and summary.
 
