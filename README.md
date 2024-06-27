@@ -24,7 +24,7 @@ This project implements a RESTful API for managing books and reviews using FastA
 1. **Clone the repository:**
 
    ```bash
-   git clone https://github.com/your-username/book-management.git
+   git clone https://github.com/RAMANATHAN-19/Book_management_assessment.
    cd book-management
 
 2 .Setup virtual environment:
