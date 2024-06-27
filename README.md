@@ -89,25 +89,32 @@ For production deployment, configure HTTPS for secure communication.
 11: Database Schema
 
 books Table
+
 Stores information about books.
 
-Column	Type	Constraints	Description
+
+-----------------------------------------------------------
+Column      |	Type	 |Constraints   |	Description
 id	SERIAL	PRIMARY KEY	Unique identifier for each book.
 title	VARCHAR(255)	NOT NULL	Title of the book.
 author	VARCHAR(255)	NOT NULL	Author of the book.
 genre	VARCHAR(50)		Genre of the book (optional).
 year_published	INT		Year the book was published (optional).
 summary	TEXT		Summary or description of the book.
+-----------------------------------------------------------------
+
 
 reviews Table
-Stores reviews for books.
 
+Stores reviews for books.
+---------------------------------------------------------------------------------------
 Column	Type	Constraints	Description
 id	SERIAL	PRIMARY KEY	Unique identifier for each review.
 book_id	INT	REFERENCES books(id)	Foreign key referencing the books table.
 user_id	INT	NOT NULL	Identifier for the user who wrote the review.
 review_text	TEXT		Text content of the review.
 rating	INT	CHECK (rating >= 1 AND rating <= 5)	Rating given by the user (1 to 5).
+---------------------------------------------------------------------------------------
 
 Explanation:
 
