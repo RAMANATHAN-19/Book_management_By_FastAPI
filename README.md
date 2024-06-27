@@ -110,12 +110,11 @@ review_text	TEXT		Text content of the review.
 rating	INT	CHECK (rating >= 1 AND rating <= 5)	Rating given by the user (1 to 5).
 
 Explanation:
+
 books Table: Contains information about each book including its title, author, genre, publication year, and summary.
+
 reviews Table: Stores reviews associated with each book. Each review is linked to a specific book (book_id), has a user identifier (user_id), textual content (review_text), and a rating (rating).
 
-Notes:
-Ensure proper indexing and foreign key constraints for optimal database performance and data integrity.
-Adjust column sizes (e.g., VARCHAR lengths) based on your specific requirements and expected data.
 
 
 ![Fast API swagger](https://github.com/RAMANATHAN-19/Book_management_assessment/assets/148554695/1ec7cbdb-a78d-4688-b540-2ad5686add31)
